@@ -1,0 +1,106 @@
+baseURL: http://blog.fall-prediction.net/
+title: Tout va bien
+theme: puppet
+copyright: 'Copyright © 2024 Elizabeth Huang. All Rights Reserved.'
+defaultContentLanguage: zh-tw
+hasCJKLanguage: true
+paginate: 10
+enableRobotsTXT: true
+enableEmoji: true
+pygmentsUseClasses: true
+
+blackfriday:
+  hrefTargetBlank: true
+
+taxonomies:
+  category: categories
+  series: series
+  tag: tags
+  authors: authors
+
+build:
+  writeStats: true
+
+# permalinks:
+  # news: /news/:title/
+  # blog: /blog/:title/
+
+markup:
+  highlight:
+    noClasses: true
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    lineNumbersInTable: false
+    # style: monokai
+  goldmark:
+    renderer:
+      unsafe: true
+
+# menus:
+#   main:
+#     - identifier: home
+#       name: Home
+#       url: /
+      # weight: -100
+    # - identifier: archive
+    #   name: Archive
+    #   url: /archive/
+      # weight: 10
+    # - identifier: guide
+    #   name: Guide
+    #   url: /series/themes-guide/
+      # weight: 20
+    # - identifier: about
+    #   name: About
+    #   url: /about/
+    #   weight: 50
+    # - identifier: github
+    #   name: Github
+    #   url: https://github.com/roninro/hugo-theme-puppet/
+      # weight: 100
+
+params:
+  author: Elizabeth Huang
+  description: Elizabeth's blog
+  keywords: aws,go
+  img_home: img/home-bg.jpg
+  img_404: img/404-bg.jpg
+  # useFaviconGenerator: true
+  # custom_js: []
+  # custom_css: []
+  sidebar:
+    enable: true
+    gravatarEmail: ""
+    avatar: img/profile.jpg
+    bio: PHP後端工程師，喜歡在業餘時間研究一些哩哩摳摳。最近致力成為一名Gopher
+  social:
+    # twitter: johndoe
+    # facebook: johndoe
+    # zhihu: johndoe
+    # weibo: johndoe
+    github: FallPrediction
+    # gitlab: johndoe
+    linkedin: Elizabeth
+    # rss: true
+    # mastodon:
+    #   weight: 56
+    #   icon: fab fa-mastodon
+    #   format: https://mastodon.social/%v
+    #   id: johndoe
+    #   url: ""
+  # friends:
+  #   - name: John Doe
+  #     url: https://gohugo.io
+  #   - name: John Doe
+  #     url: https://gohugo.io
+  # giscus:
+  #   enable: true
+  #   repo: roninro/hugo-theme-puppet
+  #   repo_id: R_kgDOHuvyhw
+  #   category: General
+  #   category_id: DIC_kwDOHuvyh84CQjDo
+  #   input_position: top
+  #   theme: light_tritanopia
+  #   lang: en
+
