@@ -67,8 +67,8 @@ params:
   img_home: img/home-bg.jpg
   img_404: img/404-bg.jpg
   # useFaviconGenerator: true
-  # custom_js: []
-  # custom_css: []
+  custom_js: []
+  custom_css: ["css/syntax.css"]
   sidebar:
     enable: true
     gravatarEmail: ""
