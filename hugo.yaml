@@ -62,7 +62,7 @@ markup:
 
 params:
   author: Elizabeth Huang
-  description: Elizabeth's blog
+  description: 一個分享學習成果的地方
   keywords: aws,go
   img_home: img/home-bg.jpg
   img_404: img/404-bg.jpg
