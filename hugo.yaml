@@ -73,7 +73,7 @@ params:
     enable: true
     gravatarEmail: ""
     avatar: img/profile.jpg
-    bio: PHP後端工程師，喜歡在業餘時間研究一些哩哩摳摳。最近致力成為一名Gopher
+    bio: PHP 後端工程師，喜歡在業餘時間研究一些哩哩摳摳。最近致力成為一名 Gopher
   social:
     # twitter: johndoe
     # facebook: johndoe
