@@ -1,6 +1,7 @@
 +++
 title = '用Terraform舒適管理Infrastructure'
 date = 2023-11-26T20:20:26+08:00
+lastmod = 2026-04-12T18:31:42+08:00
 draft = false
 description = '用Terraform舒適管理Infrastructure'
 toc = true
@@ -19,12 +20,8 @@ categories = ['Infra']
 
 Terraform是一個IaC(Infrastructure as Code)工具，可以用簡單易讀的設定檔，建立許多Provider，如AWS、GCP等，提供的資源
 
-還可以快速建立或快速銷毀，Provider會自動計算依賴關係，按照順序建立或刪除
-
-更好的是可以進版控，方便追蹤修改的歷史
-
-![梗圖](https://scontent.ftpe8-4.fna.fbcdn.net/v/t1.6435-9/107587501_3086264571422400_7502187894878575053_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=pp23QBmSPhYAb6ND2cA&_nc_ht=scontent.ftpe8-4.fna&oh=00_AfBHuj0IsMBh9xHDCjdJtj7V1yUsgpSwpwOsebkwhyDtrg&oe=66545592)
-
+還可以快速建立或快速銷毀，Provider會自動計算依賴關係，按照順序建立或刪除\
+更好的是可以進版控，方便追蹤修改的歷史\
 這麼~~偷懶~~便利的東西，簡直是工程師的心頭好啊
 
 ## Terraform的檔案種類
@@ -268,10 +265,8 @@ terraform show
 
 ## 小心謹慎！
 ![啪，沒了](https://memeprod.sgp1.digitaloceanspaces.com/user-wtf/1634874062538.jpg)
-請仔細閱讀 terraform apply 印出的計畫，因為可能不小心刪除或建立資源！
-
-~~曾經聽過有人在下班前沒看清楚直接apply，結果很多人跟著加班的慘案~~
-
+請仔細閱讀 terraform apply 印出的計畫，因為可能不小心刪除或建立資源！\
+~~曾經聽過有人在下班前沒看清楚直接apply，結果很多人跟著加班的慘案~~\
 要注意的是，某些資源的更改是刪除後重建，東西不是同一個了
 
 ## 刪除infrastructure
@@ -281,9 +276,9 @@ terraform destroy
 當資源不再使用時，可以簡單的快速銷毀
 
 ## 範例
-可以看[我的Repo](https://github.com/FallPrediction/terraform-aws-example)，有建立AWS EC2等資源的範例
+可以看[我的Repo](https://github.com/FallPrediction/web-terraform-example)，有建立AWS EC2等資源的範例
 
-![架構圖](https://github.com/FallPrediction/terraform-aws-example/raw/master/blob/%E6%9E%B6%E6%A7%8B%E5%9C%96.jpg)
+![架構圖](https://github.com/FallPrediction/web-terraform-example/raw/master/%E6%9E%B6%E6%A7%8B%E5%9C%96.jpg)
 
 ## 參考
 - [Terraform](https://developer.hashicorp.com/terraform)
