@@ -90,7 +90,6 @@
       "lazyload",
       "list-inline",
       "listing-seperator",
-      "ma0",
       "meta",
       "mini-post-list",
       "nav",
@@ -137,8 +136,7 @@
       "text-muted",
       "visible-lg",
       "visible-lg-block",
-      "visible-md",
-      "w-75"
+      "visible-md"
     ],
     "ids": [
       "api-key",
@@ -186,6 +184,7 @@
       "mysql-innodb的index",
       "mysql-myisam的index",
       "mysql的covering-index",
+      "next-step",
       "outputstf",
       "postgresql的b-tree-index",
       "postgresql的index-only-scan",
@@ -222,6 +221,7 @@
       "先看官方文件的範例吧",
       "其他功能",
       "初始化",
+      "利用-github-action-包-image-並上傳至-ecr",
       "刪除infrastructure",
       "前言",
       "加上指定日期",
@@ -237,6 +237,7 @@
       "建立iam-user和-access-key",
       "建立更改infrastructure",
       "後記",
+      "打包為-docker-image",
       "排除重複項和指定日期",
       "搜尋",
       "最小模組結構",
