@@ -33,7 +33,7 @@ proxy.ServeHTTP(w, r)
 
 ## Metric
 除 prometheus package 自帶的 Go runtime metric collector 和 process metric collector 外，額外定義三個 metric collector：
-- `gateway_requests_total{upstream,operation,uri}`：紀錄 rate limit 接受（accept）和拒絕（reject）了多少 request。counter
+- `gateway_requests_total{upstream,operation,uri}`：記錄 rate limit 接受（accept）和拒絕（reject）了多少 request。counter
 - `http_requests_total{upstream,method,code,uri}`：總共收到多少 request。counter
 - `http_request_duration_seconds{upstream,uri}`：request 持續多少時間，以秒計算。histogram，下邊界 0.1，factor 5，共 6 個 bucket
 - `circuit_breaker_open{upstream}`：斷路器斷開次數
@@ -95,7 +95,7 @@ return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	upstream := helper.GetUpstream(r.Context())
 	reservation := m.getLimiter(upstream).Reserve()
 	if !reservation.OK() {
-		// 紀錄 reject metric
+		// 記錄 reject metric
 		helper.GatewayRequestTotal.WithLabelValues(upstream.Name, "reject", r.URL.Path).Inc()
 		// 回傳 429，header 包含 retry after，表示要等待多久才會有 token 能用
 		helper.JSONResponse(
@@ -110,7 +110,7 @@ return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		)
 		return
 	}
-	// 紀錄 accept metric
+	// 記錄 accept metric
 	helper.GatewayRequestTotal.WithLabelValues(upstream.Name, "accept", r.URL.Path).Inc()
 	m.next.ServeHTTP(w, r)
 })
@@ -166,8 +166,8 @@ func (c *CircuitBreaker) TrialCallOver() {
 }
 ```
 回到 middleware\
-斷路器開啟，或者半開且未取得試探性呼叫的 lock 時，紀錄 metric，然後回傳伺服器忙碌的 Response\
-斷路器閉合，或半開且成功取得試探性呼叫的 lock 時，允許呼叫 upstream。如果 upstream 回傳 stauts code >=500，紀錄失敗次數及時間，否則重置斷路器\
+斷路器開啟，或者半開且未取得試探性呼叫的 lock 時，記錄 metric，然後回傳伺服器忙碌的 Response\
+斷路器閉合，或半開且成功取得試探性呼叫的 lock 時，允許呼叫 upstream。如果 upstream 回傳 stauts code >=500，記錄失敗次數及時間，否則重置斷路器\
 斷路器半開時，會設定 defer function 釋放 lock
 ```go
 # middleware
@@ -181,7 +181,7 @@ return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
 	state := circuitBreaker.GetState()
 	if state == helper.Open {
-		// 紀錄斷路器開啟次數
+		// 記錄斷路器開啟次數
 		helper.CircuitBreakerOpen.WithLabelValues(upstream).Inc()
 		// 回傳伺服器忙碌的 Response
 		helper.JSONResponse(
@@ -215,7 +215,7 @@ return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	m.next.ServeHTTP(rw, r)
 
 	if rw.StatusCode >= http.StatusInternalServerError {
-		// upstream 回傳 status code >= 500 時，斷路器紀錄失敗次數及時間
+		// upstream 回傳 status code >= 500 時，斷路器記錄失敗次數及時間
 		circuitBreaker.RecordFailure()
 		return
 	}
@@ -225,7 +225,7 @@ return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 })
 ```
 ### Log
-紀錄 request 和 response log，一個 request 對應的 response 會有同一個 trace_id 方便追蹤\
+記錄 request 和 response log，一個 request 對應的 response 會有同一個 trace_id 方便追蹤\
 因為沒辦法直接從 http.ResponseWriter 取得 http status code 或 content，所以參考[這篇 SO 回答]([https://stackoverflow.com/questions/66528234/log-http-responsewriter-content](https://stackoverflow.com/a/66531582/11976231))，建立一個 struct embedding http.ResponseWriter，然後把 status code 和 content 設為 export field
 ```go
 import "net/http"
